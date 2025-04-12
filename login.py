@@ -11,8 +11,8 @@ def login(driver):
     url = "https://musescore.com/user/login"
     driver.uc_open(url)
 
-    driver.wait_for_element("#username", timeout=3)
-    driver.wait_for_element("#password", timeout=3)
+    driver.wait_for_element("#username", timeout=1)
+    driver.wait_for_element("#password", timeout=1)
 
     driver.type("#username", username)
     driver.type("#password", password)
