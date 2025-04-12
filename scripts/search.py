@@ -7,7 +7,9 @@ import time
 def search(driver, query):
     try:
         wait = WebDriverWait(driver, 5)  # Reduced timeout for faster failure
-        driver.get("https://musescore.com/sheetmusic?text=" + query)
+        driver.get(
+            "https://musescore.com/sheetmusic?complexity=2&instrument=2&text=" + query
+        )
 
         try:
             no_results_xpath = "/html/body/div[1]/div[1]/section/section/main/div[3]/h1"

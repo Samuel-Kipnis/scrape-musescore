@@ -27,17 +27,13 @@ if __name__ == "__main__":
     # Setup driver
     options = uc.ChromeOptions()
     driver = uc.Chrome(options=options)
-    options.add_experimental_option(
-        "prefs",
-        {
-            "download.default_directory": "C:\Users\Sam\Downloads\downloaded_pieces",  # your path here
-            "download.prompt_for_download": False,
-        },
-    )
+    options.add_argument(
+        "--download.default_directory --/path/to/downloads"
+    )  # Set your download directory
 
     login(driver)  # Log in to MuseScore
 
-    json_path = "sheet_music_results.json"  # Make sure this JSON exists
+    json_path = "sheet_music_results copy.json"  # Make sure this JSON exists
     download_from_json(driver, json_path)
 
     driver.quit()
