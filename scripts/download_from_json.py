@@ -27,13 +27,6 @@ if __name__ == "__main__":
     # Setup driver
     options = uc.ChromeOptions()
     driver = uc.Chrome(options=options)
-    options.add_experimental_option(
-        "prefs",
-        {
-            "download.default_directory": "C:\Users\Sam\Downloads\downloaded_pieces",  # your path here
-            "download.prompt_for_download": False,
-        },
-    )
 
     login(driver)  # Log in to MuseScore
 
