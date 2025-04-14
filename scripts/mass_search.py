@@ -1,5 +1,6 @@
 import json
 import time
+import os
 import pandas as pd
 from search import search  # Assuming search is in search.py
 
@@ -42,14 +43,21 @@ if __name__ == "__main__":
     from login import login  # Assuming login is in login.py
     import undetected_chromedriver as uc
 
+    folder_path = "./pkl_cookies"  # Path to your cookies folder
+    cookie_files = [
+        f
+        for f in os.listdir(folder_path)
+        if os.path.isfile(os.path.join(folder_path, f))
+    ]
+
     # Setup driver
     options = uc.ChromeOptions()
     driver = uc.Chrome(options=options)
 
-    login(driver)  # Log in to MuseScore
+    login(driver, cookie_files[0])  # Log in to MuseScore
 
     # Load CSV and generate queries
-    csv_path = "FinalistPiecesCSV.csv"  # Make sure this CSV exists
+    csv_path = "FinalistPiecesCSV.csv"
     queries = load_queries_from_csv(csv_path)
     print(queries)
 
