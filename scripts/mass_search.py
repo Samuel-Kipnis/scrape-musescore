@@ -49,12 +49,12 @@ if __name__ == "__main__":
     login(driver)  # Log in to MuseScore
 
     # Load CSV and generate queries
-    csv_path = "cleanlist.csv"  # Make sure this CSV exists
+    csv_path = "FinalistPiecesCSV.csv"  # Make sure this CSV exists
     queries = load_queries_from_csv(csv_path)
     print(queries)
 
     if queries:
-        mass_search(driver, queries, output_path="sheet_music_results.json")
+        mass_search(driver, queries, output_path="finalist_sheet_music_results.json")
     else:
         print("⚠️ No queries to search.")
 

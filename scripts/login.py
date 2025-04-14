@@ -1,16 +1,15 @@
 import pickle
 import time
 
-COOKIES_FILE = "musescore_cookies.pkl"
 MUSESCORE_URL = "https://musescore.com"
 
 
-def login(driver):
+def login(driver, cookies_file):
     """Load cookies and log in to MuseScore."""
     driver.get(MUSESCORE_URL)
     time.sleep(2)  # Ensure page is fully loaded for domain context
 
-    with open(COOKIES_FILE, "rb") as f:
+    with open(f"./pkl_cookies/{cookies_file}", "rb") as f:
         cookies = pickle.load(f)
         for cookie in cookies:
             driver.add_cookie(cookie)

@@ -1,6 +1,9 @@
 import undetected_chromedriver as uc
 import pickle
 import time
+import sys
+
+print(sys.argv[1])
 
 # Start browser
 options = uc.ChromeOptions()
@@ -13,7 +16,7 @@ print("🛑 Please log in manually (solve CAPTCHA if shown).")
 input("✅ Press ENTER after you have successfully logged in...")
 
 # Save cookies
-with open("musescore_cookies.pkl", "wb") as f:
+with open(f"./pkl_cookies/musescore_cookies_{sys.argv[1]}@mail.com.pkl", "wb") as f:
     pickle.dump(driver.get_cookies(), f)
 
 print("✅ Session cookies saved!")

@@ -9,11 +9,16 @@ def download(driver, url):
 
     driver.get(url)
 
+    with open("usercript.js", "r") as f:
+        script = f.read()
+    driver.execute_script(script)
+
     wait.until(
         EC.element_to_be_clickable(
             (
                 By.XPATH,
                 "/html/body/div[1]/div[1]/section/aside/div[1]/div[2]/section/button[1]",
+                # /html/body/div[1]/div[1]/section/aside/div[1]/div[2]/section/button[1]
             )
         )
     )
