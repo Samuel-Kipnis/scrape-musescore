@@ -9,10 +9,6 @@ def download(driver, url):
 
     driver.get(url)
 
-    with open("usercript.js", "r") as f:
-        script = f.read()
-    driver.execute_script(script)
-
     wait.until(
         EC.element_to_be_clickable(
             (
